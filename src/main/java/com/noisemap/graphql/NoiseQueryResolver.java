@@ -1,7 +1,7 @@
-package com.noisemap.backend.graphql;
+package com.noisemap.graphql;
 
-import com.noisemap.backend.model.NoiseRecord;
-import com.noisemap.backend.repository.NoiseRepository;
+import com.noisemap.model.NoiseRecord;
+import com.noisemap.repository.NoiseRepository;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

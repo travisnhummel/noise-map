@@ -11,3 +11,13 @@ type Query {
   allNoise: [NoiseRecord]
   noiseBySuburb(suburb: String!): [NoiseRecord]
 }
+
+type Mutation {
+  addNoiseRecord(
+    suburb: String!
+    decibel: Float!
+    latitude: Float!
+    longitude: Float!
+    timestamp: String!
+  ): NoiseRecord
+}

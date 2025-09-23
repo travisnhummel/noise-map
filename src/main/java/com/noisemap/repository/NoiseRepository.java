@@ -1,8 +1,8 @@
-package com.noisemap.backend.repository;
+package com.noisemap.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import com.noisemap.backend.model.NoiseRecord;
+import com.noisemap.model.NoiseRecord;
 
 import java.util.List;
 

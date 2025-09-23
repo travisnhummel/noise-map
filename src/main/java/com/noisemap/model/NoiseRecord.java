@@ -1,4 +1,4 @@
-package com.noisemap.backend.model;
+package com.noisemap.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
