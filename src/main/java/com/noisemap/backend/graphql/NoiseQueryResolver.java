@@ -3,6 +3,8 @@ package com.noisemap.backend.graphql;
 import com.noisemap.backend.model.NoiseRecord;
 import com.noisemap.backend.repository.NoiseRepository;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
@@ -11,6 +13,7 @@ import java.util.List;
 @Controller
 public class NoiseQueryResolver {
 
+    private static final Logger logger = LoggerFactory.getLogger(NoiseQueryResolver.class);
     private final NoiseRepository repository;
 
     public NoiseQueryResolver(NoiseRepository repository) {
@@ -19,9 +22,8 @@ public class NoiseQueryResolver {
 
     @QueryMapping
     public List<NoiseRecord> allNoise() {
-        System.out.println("\n\nAll Noise\n\n\n");
         List<NoiseRecord> records = repository.findAll();
-        System.out.println(records.size());
+        logger.info("Getting all noise records: " + records.size());
         return records;
     }
 
