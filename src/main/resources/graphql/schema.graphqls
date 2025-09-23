@@ -1,0 +1,13 @@
+type NoiseRecord {
+  id: ID!
+  suburb: String!
+  latitude: Float!
+  longitude: Float!
+  noiseLevel: Float!
+  timestamp: String!
+}
+
+type Query {
+  allNoise: [NoiseRecord]
+  noiseBySuburb(suburb: String!): [NoiseRecord]
+}
