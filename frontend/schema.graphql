@@ -1,0 +1,41 @@
+"""Exposes a URL that specifies the behaviour of this scalar."""
+directive @specifiedBy(
+  """The URL that specifies the behaviour of this scalar."""
+  url: String!
+) on SCALAR
+
+"""Indicates an Input Object is a OneOf Input Object."""
+directive @oneOf on INPUT_OBJECT
+
+"""This directive allows results to be deferred during execution"""
+directive @defer(
+  """Deferred behaviour is controlled by this argument"""
+  if: Boolean! = true
+
+  """A unique label that represents the fragment being deferred"""
+  label: String
+) on FRAGMENT_SPREAD | INLINE_FRAGMENT
+
+"""
+This directive disables error propagation when a non nullable field returns null for the given operation.
+"""
+directive @experimental_disableErrorPropagation on QUERY | MUTATION | SUBSCRIPTION
+
+type Mutation {
+  addNoiseRecord(suburb: String!, noiseLevel: Float!, latitude: Float!, longitude: Float!, timestamp: String!): NoiseRecord
+}
+
+type NoiseRecord {
+  id: ID!
+  suburb: String!
+  latitude: Float!
+  longitude: Float!
+  noiseLevel: Float!
+  timestamp: String!
+}
+
+type Query {
+  allNoise: [NoiseRecord!]!
+  noiseBySuburb(suburb: String!): [NoiseRecord]
+}
+
