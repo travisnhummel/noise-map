@@ -22,7 +22,7 @@ This directive disables error propagation when a non nullable field returns null
 directive @experimental_disableErrorPropagation on QUERY | MUTATION | SUBSCRIPTION
 
 type Mutation {
-  addNoiseRecord(suburb: String!, noiseLevel: Float!, latitude: Float!, longitude: Float!, timestamp: String!): NoiseRecord
+  addNoiseRecord(suburb: String!, noiseLevel: Float!, latitude: Float!, longitude: Float!): NoiseRecord
 }
 
 type NoiseRecord {
