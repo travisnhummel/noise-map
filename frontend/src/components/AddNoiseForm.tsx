@@ -16,13 +16,12 @@ export default function AddNoiseForm() {
 
     commitMutation<AddNoiseRecordMutationType>(relayEnvironment, {
       mutation: AddNoiseRecordMutation,
-      variables: { suburb, noiseLevel, latitude, longitude, timestamp },
+      variables: { suburb, noiseLevel, latitude, longitude },
       onCompleted: (response, errors) => {
         if (errors) {
           console.error(errors);
         } else {
           console.log("Inserted record:", response.addNoiseRecord);
-          // Reset the form
           setSuburb("");
           setNoiseLevel(0);
           setLatitude(0);
@@ -58,12 +57,6 @@ export default function AddNoiseForm() {
         placeholder="Longitude"
         value={longitude}
         onChange={(e) => setLongitude(parseFloat(e.target.value))}
-      />
-      <input
-        type="datetime-local"
-        placeholder="Timestamp"
-        value={timestamp}
-        onChange={(e) => setTimestamp(e.target.value)}
       />
       <button type="submit">Add Noise Record</button>
     </form>

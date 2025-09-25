@@ -29,15 +29,14 @@ public class NoiseMutationResolver {
             @Argument String suburb,
             @Argument double noiseLevel,
             @Argument double latitude,
-            @Argument double longitude,
-            @Argument String timestamp) {
-        logger.info("Adding noise record: " + suburb + ", " + noiseLevel + "dB at " + timestamp);
+            @Argument double longitude) {
+        logger.info("Adding noise record: " + suburb + ", " + noiseLevel + "dB");
         NoiseRecord record = new NoiseRecord();
         record.setSuburb(suburb);
         record.setNoiseLevel(noiseLevel);
         record.setLatitude(latitude);
         record.setLongitude(longitude);
-        record.setTimestamp(LocalDateTime.ofInstant(Instant.parse(timestamp), ZoneId.systemDefault()));
+        record.setTimestamp(LocalDateTime.ofInstant(Instant.now(), ZoneId.systemDefault()));
         return noiseRepository.save(record);
     }
 }

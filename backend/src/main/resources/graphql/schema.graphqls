@@ -18,6 +18,5 @@ type Mutation {
     noiseLevel: Float!
     latitude: Float!
     longitude: Float!
-    timestamp: String!
   ): NoiseRecord
 }
