@@ -1,8 +1,9 @@
 import React from "react";
 import { useLazyLoadQuery } from "react-relay/hooks";
-import FlightItem from "./FlightItem";
+import FlightMap from "./FlightMap";
 import { AllFlightsQuery } from "../graphql/queries/AllFlightsQuery";
 import { AllFlightsQuery as AllFlightsQueryType } from "../graphql/queries/__generated__/AllFlightsQuery.graphql";
+
 
 export default function FlightList() {
   const data = useLazyLoadQuery<AllFlightsQueryType>(
@@ -11,12 +12,6 @@ export default function FlightList() {
       { fetchPolicy: "store-or-network" } // optional
     );
 
-  return (
-    <ul>
-      {data.getFlightRecords.map(flight => (
-        <FlightItem recordRef={flight} />
-      ))}
-    </ul>
-  );
-}
+  return <FlightMap flightRefs={data.getFlightRecords} />;
 
+}
