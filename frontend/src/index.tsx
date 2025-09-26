@@ -5,6 +5,7 @@ import { RelayEnvironmentProvider } from 'react-relay';
 import { relayEnvironment } from './relay/Environment';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import "leaflet/dist/leaflet.css";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
