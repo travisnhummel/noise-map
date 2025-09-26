@@ -1,7 +1,8 @@
-package com.noisemap.graphql;
+package com.noisemap.controller;
 
-import com.noisemap.model.NoiseRecord;
+import com.noisemap.domain.NoiseRecord;
 import com.noisemap.repository.NoiseRepository;
+import com.noisemap.service.ingestion.OpenSkyIngestionService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,15 +16,20 @@ public class NoiseQueryResolver {
 
     private static final Logger logger = LoggerFactory.getLogger(NoiseQueryResolver.class);
     private final NoiseRepository repository;
+    private final OpenSkyIngestionService openSkyIngestionService;
 
-    public NoiseQueryResolver(NoiseRepository repository) {
+    public NoiseQueryResolver(NoiseRepository repository, OpenSkyIngestionService openSkyIngestionService) {
         this.repository = repository;
+        this.openSkyIngestionService = openSkyIngestionService;
     }
 
     @QueryMapping
     public List<NoiseRecord> allNoise() {
         List<NoiseRecord> records = repository.findAll();
         logger.info("Getting all noise records: " + records.size());
+
+        openSkyIngestionService.fetchSydneyFlights();
+
         return records;
     }
 
