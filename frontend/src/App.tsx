@@ -2,6 +2,7 @@ import React from "react";
 import { RelayEnvironmentProvider } from "react-relay/hooks";
 import { relayEnvironment } from "./relay/Environment";
 import NoiseList from "./components/NoiseList";
+import FlightList from "./components/FlightList";
 import AddNoiseForm from "./components/AddNoiseForm";
 import './App.css';
 
@@ -15,6 +16,8 @@ function App() {
         <AddNoiseForm />
         <h2>All Noise Records</h2>
         <NoiseList />
+        <h2>All Flight Records</h2>
+        <FlightList />
       </div>
     </RelayEnvironmentProvider>
   );
