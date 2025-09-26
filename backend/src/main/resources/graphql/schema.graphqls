@@ -7,9 +7,24 @@ type NoiseRecord {
   timestamp: String!
 }
 
+type FlightRecord {
+  icao24: String!
+  callsign: String
+  originCountry: String
+  longitude: Float
+  latitude: Float
+  baroAltitude: Float
+  onGround: Boolean
+  velocity: Float
+  heading: Float
+  verticalRate: Float
+  category: Int
+}
+
 type Query {
   allNoise: [NoiseRecord!]!
   noiseBySuburb(suburb: String!): [NoiseRecord]
+  getFlightRecords: [FlightRecord!]!
 }
 
 type Mutation {

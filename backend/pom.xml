@@ -52,6 +52,13 @@
 			<optional>true</optional>
 		</dependency>
 
+		<!-- OpenSky API -->
+		<dependency>
+    		<groupId>org.opensky</groupId>
+    		<artifactId>opensky-api</artifactId>
+    		<version>1.3.0</version>
+		</dependency>
+
 		<!-- Mongo -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

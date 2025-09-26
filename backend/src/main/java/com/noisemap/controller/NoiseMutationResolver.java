@@ -1,6 +1,6 @@
-package com.noisemap.graphql;
+package com.noisemap.controller;
 
-import com.noisemap.model.NoiseRecord;
+import com.noisemap.domain.NoiseRecord;
 import com.noisemap.repository.NoiseRepository;
 
 import org.slf4j.Logger;
